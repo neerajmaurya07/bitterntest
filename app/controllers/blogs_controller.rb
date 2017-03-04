@@ -8,7 +8,9 @@ class BlogsController < InheritedResources::Base
     def index
 			if params[:search_date]
         @blogs = Blog.where("created_at >= :search_date",{search_date: params[:search_date]})
-			else	
+      elsif params[:search_title]
+        @blogs = Blog.search_title(params[:search_title])
+      else	
 				@blogs = Blog.all
 			end	
 		end
