@@ -56,3 +56,4 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
+gem 'bootstrap-datepicker-rails'
