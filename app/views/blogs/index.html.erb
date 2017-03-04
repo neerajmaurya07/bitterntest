@@ -2,7 +2,9 @@
 	<div class="row"> 
 		<div class="col-md-12">
 			<div class="text-right">
+				<%if current_user.present? %>
 				<%= link_to 'New Blog Create', new_blog_path, :class=>"btn btn-default" %>
+				<%end%>
 			</div>
 		</div>
 	  <div class="col-lg-8">
@@ -22,7 +24,7 @@
 					<% end -%>
 					</br>
 			    <%= form_tag blogs_path, method: 'get', remote: true do %>
-					  <%= date_field_tag :search_date, params[:search_date]%>
+					  <%= text_field :search_date, params[:search_date], :data => {:provide => "datepicker"}%>
 					  <%= submit_tag "Search", :name => nil %>
 					  </p>
 					<% end -%>
