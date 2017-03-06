@@ -10,4 +10,11 @@ class Blog < ApplicationRecord
 	    all
 	  end
 	end
+	def self.filter_date(search_date, search_end_date)
+		if search_date && search_end_date
+      where('created_at BETWEEN ? AND ?', search_date, search_end_date)
+    else
+      all
+    end
+	end
 end

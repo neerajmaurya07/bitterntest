@@ -25,6 +25,7 @@
 					</br>
 			    <%= form_tag blogs_path, method: 'get', remote: true do %>
 					  <%= text_field :search_date, params[:search_date], :data => {:provide => "datepicker"}%>
+					  <%= text_field :search_end_date, params[:search_end_date], :data => {:provide => "datepicker"}%>
 					  <%= submit_tag "Search", :name => nil %>
 					  </p>
 					<% end -%>
