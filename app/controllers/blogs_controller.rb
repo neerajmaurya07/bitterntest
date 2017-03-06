@@ -6,9 +6,9 @@ class BlogsController < InheritedResources::Base
   # GET /blogs.json
   
     def index
-			if params[:search_date]
-        @blogs = Blog.where("created_at >= :search_date",{search_date: params[:search_date]})
-      elsif params[:search_title]
+			if params[:search_date] && params[:search_end_date]
+        @blogs = Blog.filter_date(params[:search_date], params[:search_end_date])
+      elsif params[:search_title] 
         @blogs = Blog.search_title(params[:search_title])
       else	
 				@blogs = Blog.all
