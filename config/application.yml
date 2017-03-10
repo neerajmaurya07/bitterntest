@@ -11,3 +11,5 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
     USER_NAME: testing.bittern@gmail.com
     PASSWORD: bittern1234
+    FACEBOOK_APP_ID: 396967807332760
+    FACEBOOK_SECRET: 20f8aad2b85912682ff4d4f69fba17f0

@@ -16,11 +16,6 @@
         <li class="active">
           <%= link_to 'Blogs', blogs_path %>
         </li>
-        <li>
-          <% if current_user.present? %>
-            <%= link_to 'Blog', blog_path %>
-          <% end -%>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li> 
