@@ -58,3 +58,5 @@ gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'bootstrap-datepicker-rails'
 gem "figaro"
+gem 'omniauth'
+gem 'omniauth-facebook'
