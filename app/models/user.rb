@@ -7,7 +7,7 @@ class User < ApplicationRecord
    has_many :comments
    
   def self.find_for_oauth(auth, signed_in_resource = nil)
-
+    byebug
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
     # to prevent the identity being locked with accidentally created accounts.
@@ -16,7 +16,7 @@ class User < ApplicationRecord
     user = signed_in_resource ? signed_in_resource : identity.user
     # Create the user if needed
     if user.nil?
-
+      byebug
       # Get the existing user by email if the provider gives us a verified email.
       # If no verified email was provided we assign a temporary email and ask the
       # user to verify it on the next step via UsersController.finish_signup
@@ -29,6 +29,11 @@ class User < ApplicationRecord
       else
         user_name = u_name
       end
+      if auth.provider== "twitter"
+        if email.nil?
+          email = auth.info.nickname + "@gmail.com"
+        end
+      end
       # Create the user if it's a new registration
       if user.nil?
         user_password = Devise.friendly_token[0,20]
@@ -38,6 +43,7 @@ class User < ApplicationRecord
           password: user_password,
           password_confirmation: user_password
         )
+        byebug
         user.save!
       end
     end
